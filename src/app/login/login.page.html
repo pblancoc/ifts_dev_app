@@ -1,0 +1,72 @@
+
+
+<!-- 
+  <ion-content class="contenedor">
+    
+    <ion-content class="body">
+    <h1>Login</h1>
+    <img class="logo" src="../../assets/img/login.png" alt="logo">
+  
+    
+      <form [formGroup]="credentials" (ngSubmit)="login()">
+    
+        <ion-item fill="solid" class="form-floating mb-3">
+            <ion-input type="email" placeholder="dirección de email" formControlName="email"></ion-input>
+            <ion-note slot="error" *ngIf="(email.dirty || email.touched) && email.errors">La dirección de email no es válida</ion-note>
+        </ion-item>
+    
+        <ion-item fill="solid" class="form-floating mb-3">
+          <ion-input type="password" placeholder="contraseña" formControlName="password"></ion-input>
+          <ion-note slot="error" *ngIf="(password.dirty || password.touched) && password.errors">Contraseña incorrecta</ion-note>
+      </ion-item>
+    
+        <ion-button expand="full" type="submit" [disabled]="!credentials.valid">Login</ion-button>
+        <ion-button expand="full" type="button" (click)="register()">Registrarse</ion-button>
+    
+      </form>
+    
+    
+    
+    
+  
+  </ion-content>
+    
+  
+  </ion-content>
+  
+-->
+
+<div class="contenedor">
+  <div class="body">
+    
+      <img class="logo" src="../../../assets/img/permission.png" alt="logo">
+      
+      <h1>Login</h1>
+      <form [formGroup]="credentials" (ngSubmit)="login()">
+          <div class="form-floating mb-3">
+              <input type="email" class="form-control" formControlName="email" placeholder="dirección de email">
+              <ion-note slot="error" *ngIf="(email.dirty || email.touched) && email.errors">La dirección de email no es válida</ion-note>
+              <label >Mail</label>
+            </div>
+            <div class="form-floating mb-3">
+              <input type="password" class="form-control" formControlName="password"  placeholder="contraseña">
+              <ion-note slot="error" *ngIf="(password.dirty || password.touched) && password.errors">Contraseña incorrecta</ion-note>
+              <label >Contraseña</label>
+            </div>
+      
+      
+        <div class="d-grid gap-2">
+            
+            
+          <button class="btn btn-primary" expand="full" type="submit" [disabled]="!credentials.valid">Login</button>
+          <button class="btn btn-primary" expand="full" type="button" (click)="register()">Registrarse</button>
+        </div>
+        
+      
+      </form>
+  </div>
+  </div>
+  
+  
+  
+
