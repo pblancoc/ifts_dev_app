@@ -1,17 +1,16 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
 import { AlertController, LoadingController } from '@ionic/angular';
 import { AuthService } from '../services/auth.service';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.page.html',
-  styleUrls: ['./login.page.scss'],
+  selector: 'app-registro',
+  templateUrl: './registro.page.html',
+  styleUrls: ['./registro.page.scss'],
 })
-export class LoginPage implements OnInit {
+export class RegistroPage implements OnInit {
   credentials: FormGroup;
-
   constructor(
     private fb: FormBuilder,
     private loadingController: LoadingController,
@@ -19,8 +18,6 @@ export class LoginPage implements OnInit {
     private authService: AuthService,
     private router: Router
   ) { }
-
-  // Para acceder a los campos del fromulrio:
   get email() {
     return this.credentials.get('email');
   }
@@ -30,27 +27,11 @@ export class LoginPage implements OnInit {
   }
 
 
-
   ngOnInit() {
     this.credentials = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(6)]]
     })
-  }
-
-
-  async login() {
-    const loading = await this.loadingController.create();
-    await loading.present();
-
-    const user = await this.authService.login(this.credentials.value);
-    await loading.dismiss();
-
-    if (user) {
-      this.router.navigateByUrl('/home', { replaceUrl: true });
-    } else {
-      this.showAlert('Falló el login', 'Por favor intente de nuevo');
-    }
   }
 
   async showAlert(header, message) {
@@ -61,5 +42,20 @@ export class LoginPage implements OnInit {
     });
     await alert.present();
   }
+  
 
+
+  async registrarse() {
+    const loading = await this.loadingController.create();
+    await loading.present();
+
+    const user = await this.authService.register(this.credentials.value);
+    await loading.dismiss();
+
+    if (user) {
+      this.router.navigateByUrl('/login', { replaceUrl: true });
+    } else {
+      this.showAlert('Falló el registro', 'Por favor intente de nuevo');
+    }
+  }
 }

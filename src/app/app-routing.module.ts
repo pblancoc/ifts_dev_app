@@ -5,11 +5,13 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { 
   redirectUnauthorizedTo,
   redirectLoggedInTo,
-  canActivate, // tanto para login como para home             
+  canActivate, // tanto para login como para home            
 } from '@angular/fire/auth-guard'
 
 const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['']);
 const redirectLoggedInToHome = () => redirectLoggedInTo(['home']);
+const redirectLoggedInToLogin = () => redirectLoggedInTo(['login'])
+
 
 
 // Se cambia el login a la primera posición para que la app arranque allí.
@@ -17,8 +19,6 @@ const routes: Routes = [
   {
     path: '',
     loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule),
-    // Si se llega al login y se está logueado, te lleva a Home
-    ...canActivate(redirectLoggedInToHome)
   },
   {
     path: 'home',
@@ -26,11 +26,10 @@ const routes: Routes = [
     // Si se llega al Home y no se está logueado, te lleva a Login
     ...canActivate(redirectUnauthorizedToLogin)
   },
-  // {
-  //   path: '',
-  //   redirectTo: 'home',
-  //   pathMatch: 'full'
-  // },
+  {
+    path: 'registro',
+    loadChildren: () => import('./registro/registro.module').then( m => m.RegistroPageModule),
+  },
 
   {
     path: '**',
