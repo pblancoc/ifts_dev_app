@@ -11,6 +11,7 @@ import {
 const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['']);
 const redirectLoggedInToHome = () => redirectLoggedInTo(['home']);
 const redirectLoggedInToLogin = () => redirectLoggedInTo(['login'])
+const redirectLoggedInToRecuperar = () => redirectLoggedInTo(['recuperar-usuario'])
 
 
 
@@ -31,9 +32,15 @@ const routes: Routes = [
     loadChildren: () => import('./registro/registro.module').then( m => m.RegistroPageModule),
   },
 
+ 
+  {
+    path: 'recuperar-usuario',
+    loadChildren: () => import('./recuperar-usuario/recuperar-usuario.module').then( m => m.RecuperarUsuarioPageModule),
+    
+  },
   {
     path: '**',
-    redirectTo: '',
+    redirectTo: '/login',
     pathMatch: 'full'
   },
 ];
