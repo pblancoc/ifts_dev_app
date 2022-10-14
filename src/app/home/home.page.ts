@@ -27,4 +27,9 @@ export class HomePage {
 
   async changeImage() {}
 
+  option = {
+    initialSlide: 1,
+    speed: 400,
+    autoplay:true,
+  }
 }

@@ -46,12 +46,12 @@
       <form [formGroup]="credentials" (ngSubmit)="login()">
           <div class="form-floating mb-3">
               <input type="email" class="form-control" formControlName="email" placeholder="dirección de email">
-              <ion-note slot="error" *ngIf="(email.dirty || email.touched) && email.errors">La dirección de email no es válida</ion-note>
+              <ion-note slot="error" *ngIf="(email.dirty || email.touched) && email.errors"> <b>La dirección de email no es válida</b></ion-note>
               <label >Mail</label>
             </div>
             <div class="form-floating mb-3">
               <input type="password" class="form-control" formControlName="password"  placeholder="contraseña">
-              <ion-note slot="error" *ngIf="(password.dirty || password.touched) && password.errors">Contraseña incorrecta</ion-note>
+              <ion-note slot="error" *ngIf="(password.dirty || password.touched) && password.errors"> <b>Contraseña incorrecta</b></ion-note>
               <label >Contraseña</label>
             </div>
       
@@ -60,7 +60,8 @@
             
             
           <button class="btn btn-primary" expand="full" type="submit" [disabled]="!credentials.valid">Login</button>
-          <button class="btn btn-primary" expand="full" type="button" [routerLink]="['/registro']">Registrarse</button>
+          <a class="m-3" routerLink="/recuperar-passvord"> <b>Recuperar contraseña</b></a>
+          <p>No tienes cuenta? <a routerLink="/registro"> <b>Registarse</b></a></p>
         </div>
         
       
