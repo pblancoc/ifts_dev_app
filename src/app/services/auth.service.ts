@@ -7,7 +7,12 @@ import { Auth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signO
 })
 export class AuthService {
   // complentamos el constructor
-  constructor(private auth: Auth) {}
+  constructor(
+    
+    private auth: Auth
+    
+    
+    ) {}
 
   // y las siguienets funciones
   async register({ email, password }) {
@@ -38,5 +43,12 @@ export class AuthService {
 
   logout() {
     return signOut(this.auth);
+  }
+
+  // función para moverse dentro de las paginas
+  navegar(){
+    console.log('Soy el Auth Service permiténdote navegar entre páginas')
+    // redirect??
+    return true
   }
 }

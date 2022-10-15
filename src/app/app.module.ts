@@ -13,6 +13,8 @@ import { environment } from 'src/environments/environment';
 import { provideFirestore, getFirestore } from '@angular/fire/firestore'
 import { provideStorage, getStorage } from '@angular/fire/storage'
 import { provideAuth, getAuth } from '@angular/fire/auth';
+// Auth Guard para poder autorizar la navegación de los usuarios
+//import { AuthGuard } from '@angular/fire/auth-guard';
 
 
 @NgModule({

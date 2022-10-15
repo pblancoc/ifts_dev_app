@@ -62,7 +62,11 @@
     </div>
 
     <div class="body">
-      <h1>Club de Jazz</h1> 
+      <h1>Clubes de Jazz</h1> 
+      <ion-card-content>
+        Para una experiencia musical relajada e íntima.
+      </ion-card-content>
+
       <ion-slides pager="true" [options]="option">
         
         <ion-slide>
@@ -76,10 +80,13 @@
         </ion-slide>
         
       </ion-slides>
+
+      <!--Nota Pame:
+      Agregué un botoncito para redirigir a la página de clubes de jazz-->
+
+      <ion-button color="secondary" (click)="navegarAClubesJazz()" >Ir a listado de clubes jazzeros</ion-button>
      
-        <ion-card-content>
-          Para una experiencia musical relajada e íntima.
-        </ion-card-content>
+        
       </div>
 
 </ion-content>
