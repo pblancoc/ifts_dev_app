@@ -51,18 +51,6 @@ const routes: Routes = [
     
   },
 
-  // había que desactivar lo de abajo para poder navegar 
-  // entre nuevas páginas
-  // cada vez que se hacía click en algo
-  // redirigía al login
-
-  // {
-  //   path: '**',
-  //   redirectTo: '',
-  //   pathMatch: 'full'
-  // },
-  
-
   {
     path: 'clubes-jazz',
     loadChildren: () => import('./clubes-jazz/clubes-jazz.module').then( m => m.ClubesJazzPageModule),
@@ -72,6 +60,11 @@ const routes: Routes = [
     
   },
 
+  {
+    path: '**',
+    redirectTo: '',
+    pathMatch: 'full'
+  }
 ];
 @NgModule({
   imports: [
