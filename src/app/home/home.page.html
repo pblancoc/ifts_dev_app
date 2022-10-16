@@ -36,6 +36,10 @@
       Nuestros restaurantes locales ofrecen lo mejor de nuestra ciudad. Desde cervezas locales,
       cocina de temporada y amables camareros, ¡creemos que le gustarán estos lugares!
     </ion-item>
+
+    <ion-button color="secondary" (click)="navegarAListado('Restaurant')" >
+      Ir a listado de Restaurantes
+    </ion-button>
   </div>
 
   <div class="body">
@@ -59,6 +63,10 @@
       palacios
       con cientos de ellas, encuentre el museo perfecto que se adapte a sus intereses a cualquier precio.
       </ion-card-content>
+
+      <ion-button color="secondary" (click)="navegarAListado('Museos')" >
+        Ir a listado de museos
+      </ion-button>
     </div>
 
     <div class="body">
@@ -84,9 +92,9 @@
       <!--Nota Pame:
       Agregué un botoncito para redirigir a la página de clubes de jazz-->
 
-      <ion-button color="secondary" (click)="navegarAClubesJazz()" >Ir a listado de clubes jazzeros</ion-button>
-     
-        
-      </div>
+      <ion-button color="secondary" (click)="navegarAListado('Clubes de Jazz')" >
+        Ir a listado de clubes jazzeros
+      </ion-button>     
+    </div>
 
 </ion-content>

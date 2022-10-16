@@ -1,12 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
-
-
-
-
-
-
+import { Proveedor1Service } from '../services/proveedor1.service';
 
 @Component({
   selector: 'app-home',
@@ -20,8 +15,7 @@ export class HomePage {
    
     private authService: AuthService,
     private router: Router,
-    
-    
+    public proveedor: Proveedor1Service
   ) {}
 
   async logout() {
@@ -40,6 +34,11 @@ export class HomePage {
   async navegarAClubesJazz() {
     console.log('redirigiendo a clubes de jazz')
     this.router.navigateByUrl('clubes-jazz', { replaceUrl: true });
- }
- 
+  }
+
+  async navegarAListado(opcion: string){
+    console.log("Dio click en " + opcion);
+    this.proveedor.opcion = opcion;
+    this.router.navigateByUrl('lista-lugar', { replaceUrl: true });
+  }  
 }

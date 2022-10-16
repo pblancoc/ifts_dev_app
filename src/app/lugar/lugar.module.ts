@@ -4,17 +4,17 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { ClubesJazzPageRoutingModule } from './clubes-jazz-routing.module';
+import { LugarPageRoutingModule } from './lugar-routing.module';
 
-import { ClubesJazzPage } from './clubes-jazz.page';
+import { LugarPage } from './lugar.page';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    ClubesJazzPageRoutingModule
+    LugarPageRoutingModule
   ],
-  declarations: [ClubesJazzPage]
+  declarations: [LugarPage]
 })
-export class ClubesJazzPageModule {}
+export class LugarPageModule {}
