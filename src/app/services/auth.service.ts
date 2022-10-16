@@ -45,10 +45,5 @@ export class AuthService {
     return signOut(this.auth);
   }
 
-  // función para moverse dentro de las paginas
-  navegar(){
-    console.log('Soy el Auth Service permiténdote navegar entre páginas')
-    // redirect??
-    return true
-  }
+
 }

@@ -1,8 +1,43 @@
 import { Component, OnInit } from '@angular/core';
-// importando lo mismo que tiene recuperar-usuario, que sí funciona
-import { Router } from '@angular/router';
-//import { AlertController } from '@ionic/angular';
-//import { AuthService } from '../services/auth.service';
+
+
+
+// para poder tener los datos de la api
+import { Proveedor1Service } from '../services/proveedor1.service';
+
+
+
+
+interface Categoria {
+  fuente:	string;
+  fecha_de_relevamiento: string;
+  tipo_de_geometria: string;
+  nombre_normalizado: string;
+  descripcion: string;
+  nombre: string;
+}
+
+
+// interface ClubesDeJazz {
+//   // nombreId: string;
+//   // nombre: string;
+//   // total: string;
+//   // id: string;
+//   // nombreNorm: string;
+
+//   total: string;
+//   totalFull: string;
+//   clasesEncontradas: string[];
+//   instancias: string[];
+
+// }
+
+interface Idata {
+  categorias: Categoria[];
+  cantidad_de_categorias: number;
+
+  //clubesDeJazz: ClubesDeJazz[];
+}
 
 @Component({
   selector: 'app-clubes-jazz',
@@ -11,15 +46,31 @@ import { Router } from '@angular/router';
 })
 export class ClubesJazzPage implements OnInit {
 
+  data;
+  lugares: Categoria[];
+
+  //clubes: ClubesDeJazz[];
+
   constructor(
 
-    private router: Router,
-    //private alertController: AlertController,
-    //private authService: AuthService
+    
+    public proveedor: Proveedor1Service
 
   ) { }
 
   ngOnInit() {
+
+    this.ionViewDidLoad();
+  }
+
+  ionViewDidLoad(){
+    this.proveedor.obtenerDatos()
+    .subscribe(
+      (data)=> {this.data = data;
+                this.lugares = this.data.categorias},
+                //this.clubes = this.data.clubesDeJazz},
+      (error)=> {console.log(error);}
+    );
   }
 
 }
